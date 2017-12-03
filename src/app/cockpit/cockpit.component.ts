@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, ElementRef, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
 
 @Component({
   selector: 'app-cockpit',
@@ -6,8 +6,9 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
   styleUrls: ['./cockpit.component.css']
 })
 export class CockpitComponent implements OnInit {
-  newServerName = '';
-  newServerContent = '';
+//  newServerName = '';
+//  newServerContent = '';
+  @ViewChild ('serverContentInput') serverContent: ElementRef;
   @Output() elementData = new EventEmitter();
   constructor() { }
 
@@ -15,10 +16,11 @@ export class CockpitComponent implements OnInit {
   }
 
   onAddServer(nameInput) {
+    console.log(this.serverContent);
     this.elementData.emit({
       type: 'server',
       name: nameInput.value,
-      content: this.newServerContent
+      content: this.serverContent.nativeElement.value
     });
 /*    this.serverElements.push({
       type: 'server',

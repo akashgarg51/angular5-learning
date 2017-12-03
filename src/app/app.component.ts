@@ -16,7 +16,7 @@ export class AppComponent {
   serverElements = [];
 
   onGettingElementData(event) {
-      console.log(event);
+ //     console.log(event);
       this.serverElements.push(event);
   }
 }
