@@ -1,11 +1,23 @@
 <div class="container">
-  <div class="row">
+
+  <!-- The below commented code was applicable till section 4 of udemy couse -->
+
+<!--  <div class="row">
     <div class="col-xs-12">
       <h3>I'm in the App Component!</h3>
       <hr>
       <app-servers></app-servers>
-      <!--<div app-servers></div>-->
-      <!--<div class="app-servers"></div>-->
+      &lt;!&ndash;<div app-servers></div>&ndash;&gt;
+      &lt;!&ndash;<div class="app-servers"></div>&ndash;&gt;
+    </div>
+  </div>-->
+
+  <!-- Starting with udemy 5th session -->
+  <app-cockpit (elementData)="onGettingElementData($event)"></app-cockpit>
+  <hr>
+  <div class="row">
+    <div class="col-xs-12">
+       <app-server-element [element]="serverElement" *ngFor="let serverElement of serverElements"></app-server-element>
     </div>
   </div>
 </div>
